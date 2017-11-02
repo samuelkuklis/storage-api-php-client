@@ -2451,7 +2451,7 @@ Loads tables from Storage into a Workspace.
                         + Items
                             + (object)
                                 + Properties
-                                    + sourceColumn (required, string) - column name
+                                    + source (required, string) - column name
                                     + type (required, string) - data type, eg. VARCHAR
                                     + length (optional, string) - data type size, where applicable, eg. 255 for VARCHAR or 10,2 for NUMBER
                                     + nullable (optional, boolean) - allow NULL values in destination table
@@ -2485,7 +2485,7 @@ Loads tables from Storage into a Workspace.
                             + even
                             + all
                             + key
-                    + distKey[] (optional, array) - Redshift only - Column(s) to use for the key distribution style
+                    + distKey (optional) - Redshift only - Column to use for the key distribution style
                     + incremental (optional, boolean) - If incremental is set to true, the target table will be preserved and new data will be appended.
                         Default: false
     + preserve (optional, boolean) - If true, the workspace will not be altered before loading. When false, clears the workspace before loading.
