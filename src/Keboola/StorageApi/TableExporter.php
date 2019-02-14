@@ -121,7 +121,7 @@ class TableExporter
                 } else {
                     $catCmd = "cat " . escapeshellarg($file) . " >> " . escapeshellarg($destination);
                 }
-                $process = new Process($catCmd);
+                $process = new Process::fromShellCommandline($catCmd);
                 $process->setTimeout(null);
                 if (0 !== $process->run()) {
                     throw new ProcessFailedException($process);
@@ -132,7 +132,7 @@ class TableExporter
             // Compress the file afterwards if required
             if ($exportOptions["gzip"]) {
                 $gZipCmd = "gzip " . escapeshellarg($destination) . ".tmp --fast";
-                $process = new Process($gZipCmd);
+                $process = new Process::fromShellCommandline($gZipCmd);
                 $process->setTimeout(null);
                 if (0 !== $process->run()) {
                     throw new ProcessFailedException($process);
